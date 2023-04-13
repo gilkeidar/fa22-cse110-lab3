@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample ByteFrost Meeting Minutes</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+</head>
+<body>
+    <header>
+        <div id="top">
+            <h1>Sample (Fake) ByteFrost Meeting Minutes</h1>
+            <img src="ByteFrost_Logo.png" alt="ByteFrost Logo" width="250">
+            <h2>Brainstorming Move to 16 Bits</h2>
+            <h3>April 12, 2023</h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#attendance">Attendance</a></li>
+                <li><a href="#agenda">Meeting Agenda</a></li>
+                <li><a href="#previous">Previous Meeting Discussion</a></li>
+                <li><a href="#new">New Business</a></li>
+                <li><a href="#miscellaneous">Miscellaneous</a></li>
+                <li><a href="#visual">Diagrams</a></li>
+                <li><a href="#recording">Recording</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <section id="attendance">
+            <h2>Attendance</h2>
+            <span><i>In attendance were:</i></span>
+            <ul>
+                <li>Gil Keidar</li>
+                <li>Ron Keidar</li>
+            </ul>
+        </section>
+        <section id="agenda">
+            <h2>Meeting Agenda</h2>
+            <ol>
+                <li>Reviewing ByteFrost ISA
+                    <ul>
+                        <li>Formally define ISA formats</li>
+                        <li>Generalize instructions where possible</li>
+                    </ul>
+                </li>
+                <li>Upgrading address bus to 16 bits
+                    <ul>
+                        <li>Determine where changes to ISA need to be made</li>
+                        <li>Discuss upper byte address register idea</li>
+                        <li>Discuss which memory addressing modes to support</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+        <section id="previous">
+            <h2>Previous Meeting Discussion</h2>
+            <details>
+                <summary><b>Additional sample programs</b></summary>
+                <p>We went over program ideas to add to the sample programs folder.</p>
+                <p>We already have implementations for the Eight Queens Problem solver and a Binary Search Tree.</p>
+                <p>Due to the 8-bit program counter limitation, programs are limited to 256 instructions, so writing programs 
+                    in anything above assembly is not feasible yet, except for something like BASIC perhaps.
+                </p>
+                <p>However, in the previous meeting we discussed implementing the following:</p>
+                <ul>
+                    <li>Sorting algorithms
+                        <ul>
+                            <li>Selection sort</li>
+                            <li>Merge sort <strong>(recursive, heavy RAM use)</strong></li>
+                            <li>Quick sort</li>
+                        </ul>
+                    </li>
+                    <li>Data structures
+                        <ul>
+                            <li>Linked list (traversal)</li>
+                            <li>Binary Search Tree <i>(completed)</i></li>
+                            <li>Stack</li>
+                            <li>Queue</li>
+                            <li>PriorityQueue</li>
+                            <li>Graphs
+                                <ul>
+                                    <li>DFS recursive implementation</li>
+                                    <li>BFS</li>
+                                    <li>Dijkstra's Algorithm</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </details>
+            
+        </section>
+        <section id="new">
+            <h2>New Business</h2>
+            <details>
+                <summary><b>16-bit address bus</b></summary>
+                <p>Ideas were brought up regarding how to implement a 16-bit address bus:</p>
+                <p>One way is to add another address register for the high byte of the address, 
+                    called a <em>page register</em>, and to have a separate instruction for updating the page register. <br>
+                    In this way, we could maintain the simplicity of needing only an 8-bit immediate or a single register
+                    to update the current RAM address. <br>
+                    However, this would likely require extra control signals (since we write to the page register and address
+                    register separately) as well as use up an extra opcode or two for additional instructions to update the page
+                    register.
+                </p>
+                <p>
+                    Another approach is to make the address register 16-bits wide and to require load / store instructions to specify
+                    the entire address (this likely would mean using both an immediate and a register value to construct the address). <br>
+                    The advantage of this is that we can likely just revamp current load/store instructions to accomodate this approach,
+                    but the downside is that we need to use up a register for every load / store.
+                </p>
+            </details>
+        </section>
+        <section id="miscellaneous">
+            <h2>Miscellaneous</h2>
+            <details>
+                <summary><b>Comments and concerns</b></summary>
+                <p>The point was brought up that since the ByteFrost is still in its initial stage and the only code that was written so far
+                    was written by its creators, the ISA can be modified without respect to backwards compatibility.
+                    <br>
+                    The goal is to have a generic and powerful RISC ISA that is intuitive to use and doesn't pose a bottleneck
+                    for developers.
+                </p>
+            </details>
+        </section>
+        <section id="visual">
+            <h2>Diagrams</h2>
+            <details>
+                <summary><b>Whiteboard stack diagram</b></summary>
+                <img src="IMG_1567.jpg" alt="whiteboard stack diagram" width="500">
+            </details>
+        </section>
+        <section id="recording">
+            <h2>Meeting Recording</h2>
+            <details>
+                <summary><b>Video Recording (ByteFrost YouTube Channel Intro)</b></summary>
+                <video width="640" height="480" controls>
+                    <source src="ByteFrostOverview.mp4" type="video/mp4">
+                </video>
+            </details>
+            <details>
+                <summary><b>Audio Recording (Voice line from Video 2 "The Fetch Operation")</b></summary>
+                <audio controls>
+                    <source src="ByteFrostFetchVoiceLine.m4a" type="audio/x-m4a">
+                </audio>
+            </details>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <h4>Subscribe to the ByteFrost Newsletter</h4>
+        <p><i>Our news, sent to you one byte at a time!</i></p>
+        <form>
+            <fieldset>
+                <legend>Subscribe Today!</legend>
+                <fieldset>
+                    <legend>User Information</legend>
+                    <label>Name:</label>
+                    <input type="text" placeholder="Enter your name" /> <br><br>
+                    <label>Email:</label>
+                    <input type="email" placeholder="Enter your email address" />
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend>Newsletter Customization</legend>
+                    <label>When would you first like to receive our newsletter?</label>
+                    <input type="date" /> <br><br>
+                    <label>What news would you like to receive? <i>(please select up to 3 items)</i></label> <br>
+                    <input type="checkbox" id="architecture"/>
+                    <label for="architecture">Architectural updates</label> <br>
+                    <input type="checkbox" id="isa"/>
+                    <label for="isa">ISA updates</label> <br>
+                    <input type="checkbox" id="programs"/>
+                    <label for="programs">New programs</label> <br>
+                    <input type="checkbox" id="assembler"/>
+                    <label for="assembler">Assembler updates</label> <br><br>
+                    <label>Preferred Newsletter length:</label> <br>
+                    <input type="range" list="length" step="25"/>
+                    <datalist id="length">
+                        <option value="0" label="1 byte"></option>
+                        <option value="25" label="512 bytes"></option>
+                        <option value="50" label="1 KB"></option>
+                        <option value="75" label="2 KB"></option>
+                        <option value="100" label="4 KB"></option>
+                    </datalist>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend>Getting Your Newsletter</legend>
+                    <label>Please choose the medium you'd like to use to receive your newsletter:</label>
+                    <br>
+                    <input type="radio" id="fax">
+                    <label for="fax">Fax</label>
+                    <br>
+                    <input type="radio" id="mail">
+                    <label for="mail">Snail mail</label>
+                    <br>
+                    <input type="radio" id="telegram">
+                    <label for="telegram">Telegram</label>
+                    <br>
+                    <input type="radio" id="airdrop">
+                    <label for="airdrop">Airdropped at the nearest empty field</label>
+                    <br>
+                    <input type="radio" id="onebyte">
+                    <label for="onebyte">One byte at a time (<em>byte</em>-sized special for new subscribers!)</label>
+                    <br>
+                    <br>
+                    <label>Shipping Option:</label>
+                    <select id="shipping">
+                        <option value="free">Free 2-Year Shipping</option>
+                        <option value="msginbottle">Over-Seas Shipping via Message-In-A-Bottle</option>
+                        <option value="ninja">Ninja Hawk (courtesy of Konohagakure)</option>
+                    </select>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend>Comments or Concerns</legend>
+                    <label>Do you have any comments or concerns?</label> <br>
+                    <textarea rows="24" cols="40" placeholder="APPLE II DOS VERSION 3.3 SYSTEM MASTER JANUARY 1, 1983"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Submit</legend>
+                    <button type="button">Submit!</button>
+                </fieldset>
+            </fieldset>
+        </form>
+    </footer>
+</body>
+</html>

@@ -1,7 +1,7 @@
 ---
 name: Layout Issue Template
 about: Specify new layout change request
-title: ''
+title: "[LAYOUT] "
 labels: website layout
 assignees: gilkeidar
 

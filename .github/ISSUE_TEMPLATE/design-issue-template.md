@@ -9,6 +9,6 @@ assignees: gilkeidar
 
 ## Design Change Request
 
-**Design Change to add:**
+**Design change to add:**
 **Relevant CSS properties:**
 **Affected tags:**

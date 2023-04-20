@@ -12,6 +12,17 @@
         fieldset {
             background-color: blanchedalmond;
         }
+        textarea {
+            background-color: black;
+            color: lawngreen;
+            resize: none;
+            
+        }
+
+        textarea::placeholder {
+            color: lawngreen;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -224,7 +235,7 @@
                     </select>
                 </fieldset>
                 <br>
-                <fieldset>
+                <fieldset style="display: flex; flex-direction: column; align-items: center;">
                     <legend>Comments or Concerns</legend>
                     <label>Do you have any comments or concerns?</label> <br>
                     <textarea rows="24" cols="40" placeholder="APPLE II DOS VERSION 3.3 SYSTEM MASTER JANUARY 1, 1983"></textarea>

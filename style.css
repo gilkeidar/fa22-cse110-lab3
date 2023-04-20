@@ -86,6 +86,7 @@ main {
     border-color: burlywood;
     border-width: 10px;
     padding: 1vh 1vw 1vh 1vw;
+    position: relative;
 }
 
 h1 {
@@ -104,6 +105,7 @@ h2 {
 
 details {
     background-color: #F0FFFF;
+    display: block;
 }
 
 summary {
@@ -115,6 +117,13 @@ summary {
     border-color: lightskyblue;
     border-width: 2px;
     padding: 1vh 1vw 1vh 4vw;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: start;
+    list-style-type: none;
+    position: sticky;
 }
 
 a {
@@ -142,4 +151,11 @@ p {
 
 legend {
     text-decoration: underline;
+}
+
+#logo {
+    width: 250px;
+    min-width: 100px;
+    max-width: 500px;
+    height: 80px;
 }

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display|Bebas+Neue">
     <link rel="stylesheet" href="style.css">
     <style>
+        /*  CSS for the form in the footer  */
         fieldset {
             background-color: blanchedalmond;
         }
@@ -16,12 +17,19 @@
             background-color: black;
             color: lawngreen;
             resize: none;
-            
         }
 
+        /*  CSS for the placeholder text in the textarea in the footer form */
         textarea::placeholder {
             color: lawngreen;
             text-align: center;
+        }
+
+        input[type=text]:focus {
+            background-color: lightblue;
+        }
+        input[type=email] {
+            background-color: lightblue;
         }
     </style>
 </head>
@@ -29,7 +37,7 @@
     <header>
         <div id="top">
             <h1>Sample (Fake) ByteFrost Meeting Minutes</h1>
-            <img id="logo" src="ByteFrost_Logo.png" alt="ByteFrost Logo">
+            <img class="logo" src="ByteFrost_Logo.png" alt="ByteFrost Logo">
             <h2>Brainstorming Move to 16 Bits</h2>
             <h3>April 12, 2023</h3>
         </div>
@@ -171,7 +179,7 @@
     <!-- <hr> -->
     <footer>
         <h4 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size:24px; margin-top: 2vh; margin-bottom: 1vh;">Subscribe to the ByteFrost Newsletter</h4>
-        <p><i>Our news, sent to you one byte at a time!</i></p>
+        <p class="byte"><i>Our news, sent to you one byte at a time!</i></p>
         <form>
             <fieldset>
                 <legend>Subscribe Today!</legend>
@@ -224,7 +232,7 @@
                     <label for="airdrop">Airdropped at the nearest empty field</label>
                     <br>
                     <input type="radio" id="onebyte">
-                    <label for="onebyte">One byte at a time (<em>byte</em>-sized special for new subscribers!)</label>
+                    <label for="onebyte" class="byte">One byte at a time (<em>byte</em>-sized special for new subscribers!)</label>
                     <br>
                     <br>
                     <label>Shipping Option:</label>
